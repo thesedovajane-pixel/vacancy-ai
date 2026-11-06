@@ -1,16 +1,59 @@
-# React + Vite
+# Vacancy AI — Голосовой помощник для создания вакансий
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+**Vacancy AI** — прототип интерфейса, который помогает бизнес-заказчику собрать требования к вакансии с помощью голосового диалога.
 
-Currently, two official plugins are available:
+## Демо
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+[Открыть работающий прототип](https://vacancy-ai-tau.vercel.app/)
 
-## React Compiler
+## Как это работает
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Пользователь последовательно отвечает на четыре вопроса:
 
-## Expanding the Oxlint configuration
+1. Какие задачи сотрудник выполняет ежедневно?
+2. Над каким проектом он будет работать ближайшие полгода?
+3. Продолжит ли он этот проект или перейдёт на другой?
+4. Какие инструменты, программы и знания ему необходимы?
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+Ответы можно давать голосом или вводить вручную. После прохождения вопросов приложение формирует структурированный черновик требований.
+
+## Реализованные возможности
+
+- Голосовой ввод на русском языке.
+- Распознавание речи через Web Speech API.
+- Ручное редактирование ответов.
+- Круговой индикатор прогресса.
+- Структурированный итоговый черновик.
+- Копирование и экспорт результата в TXT.
+- Повторное прохождение сценария.
+
+## Технологии
+
+React, JavaScript, Vite, CSS, Web Speech API.
+
+## Ограничения текущего прототипа
+
+В текущей версии нет интеграции с языковой моделью: приложение структурирует ответы по заранее заданным разделам, но не выполняет семантический анализ.
+
+Следующие этапы развития:
+- LLM-анализ ответов;
+- выявление недостающей и противоречивой информации;
+- уточняющие вопросы;
+- генерация полноценного описания вакансии.
+
+## Запуск локально
+
+```bash
+npm install
+npm run dev
+```
+
+Для production-сборки:
+
+```bash
+npm run build
+```
+
+## Подход к разработке
+
+Прототип создан в рамках MVP-подхода: приоритетом стала проверка основного пользовательского сценария — сбора требований через последовательный голосовой диалог.
